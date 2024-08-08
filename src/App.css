@@ -1,0 +1,281 @@
+.page-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.logo {
+    width: 10rem;
+}
+
+.roboto-slab {
+    font-family: "Roboto Slab", sans-serif;
+    color: #5e1b89;
+}
+
+.lato {
+    font-family: "Lato", sans-serif;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    max-width: 650px;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+}
+
+.apptitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.addTask {
+    width: 100%;
+    max-width: 600px;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.taskInput {
+    border-radius: 10px;
+    height: 1.5rem;
+    border: 2px solid #f4512c !important;
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid transparent;
+    background-color: white;
+    font-size: 1rem;
+    color: #5e1b89;
+}
+
+.taskInput:focus,
+input:focus {
+    outline: none;
+}
+
+.taskList {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: gray;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.selected-date {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #9d71bc;
+    width: 60%;
+}
+
+.bulk-actions {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: #999;
+}
+
+.taskList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.taskList li:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.taskList label {
+    display: flex;
+    align-items: center;
+}
+
+.taskList input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #9d71bc;
+}
+
+.taskList span {
+    margin-left: 10px;
+    cursor: pointer;
+    flex-grow: 1;
+    transition: color 0.3s ease;
+}
+
+.taskList span:hover {
+    color: #333;
+}
+
+.taskList button {
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.taskList button:hover {
+    transform: scale(1.1);
+}
+
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: #5e1b89;
+    color: #fff;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-image: linear-gradient(90deg, #f4512c, #5e1b89);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:focus {
+    border: none;
+    outline: none;
+}
+
+.btn-secondary {
+    color: #5e1b89;
+}
+
+.btn-danger {
+    color: #f4512c;
+}
+
+.btn-secondary:focus {
+    border: none;
+    outline: none;
+}
+
+.react-datetime-picker {
+    color: #9d71bc;
+}
+
+.react-datetime-picker__wrapper .react-datetime-picker__button svg {
+    stroke: #5e1b89;
+    fill: #5e1b89;
+}
+
+@media only screen and (max-width: 700px) {
+    .page-layout {
+        transform: scale(0.9);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .page-layout {
+        transform: scale(0.8);
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .page-layout {
+        transform: scale(0.7);
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .selectAllBtn {
+        display: flex;
+        flex-direction: row;
+        gap: 1px;
+        transform: scale(0.9);
+    }
+}

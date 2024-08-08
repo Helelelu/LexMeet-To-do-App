@@ -1,0 +1,19 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.editTitle {
+    margin: 10px;
+}
+
+.taskEdit-wrap {
+    width: 100%;
+    display: flex;
+}
+
+.editDateLabel {
+    color: #5e1b89;
+}
