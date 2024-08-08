@@ -20,7 +20,6 @@ export default function EditTaskModal({
         task ? new Date(task.date) : new Date()
     );
 
-    // Resets state whenever the modal opens or a new task is passed
     useEffect(() => {
         if (task) {
             setEditedTitle(task.title);
@@ -28,7 +27,6 @@ export default function EditTaskModal({
         }
     }, [task, isOpen]);
 
-    // Handle confirmation of the edit
     function handleConfirm() {
         if (editedTitle.trim() === "") {
             alert("Task title cannot be empty.");
@@ -42,7 +40,6 @@ export default function EditTaskModal({
         onRequestClose();
     }
 
-    // Handle cancellation and close the modal
     function handleClose() {
         onRequestClose();
     }
