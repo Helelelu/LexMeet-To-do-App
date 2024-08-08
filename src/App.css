@@ -244,6 +244,20 @@ button:hover {
     outline: none;
 }
 
+.react-calendar button:hover {
+    background: #5e1b89 !important;
+    color: white !important;
+}
+
+.react-calendar__tile--active {
+    background: #5e1b89 !important;
+    color: white;
+}
+
+.react-calendar__tile--now {
+    background: #9d71bc !important;
+}
+
 .react-datetime-picker {
     color: #9d71bc;
 }
