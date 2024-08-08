@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import DateTimeModal from "./DateTimeModal";
 import DeleteModal from "./DeleteModal";
-import EditTaskModal from "./EditTaskModal"; // Import the new EditTaskModal component
+import EditTaskModal from "./EditTaskModal"; 
 
 function App() {
     const [newTask, setNewTask] = useState("");
