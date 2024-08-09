@@ -244,6 +244,11 @@ button:hover {
     outline: none;
 }
 
+.btn-danger:focus {
+    border: none;
+    outline: none;
+}
+
 .react-calendar button:hover {
     background: #5e1b89 !important;
     color: white !important;
