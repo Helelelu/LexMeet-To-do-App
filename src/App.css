@@ -140,6 +140,7 @@ ul {
 .taskList li {
     display: flex;
     align-items: center;
+    flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
     padding: 10px;
@@ -147,6 +148,11 @@ ul {
     border-radius: 8px;
     background: #f9f9f9;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-btns {
+    display: flex;
+    float: right;
 }
 
 .taskList li:hover {
@@ -177,7 +183,7 @@ ul {
 }
 
 .taskList button {
-    margin-left: 10px;
+    /* margin-left: 10px; */
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -233,6 +239,7 @@ button:hover {
 
 .btn-secondary {
     color: #5e1b89;
+    background-color: #f9f9f9 !important;
 }
 
 .btn-danger {
@@ -249,6 +256,14 @@ button:hover {
     outline: none;
 }
 
+.react-calendar button {
+    color: gray;
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: #d10000 !important;
+}
+
 .react-calendar button:hover {
     background: #5e1b89 !important;
     color: white !important;
@@ -256,20 +271,21 @@ button:hover {
 
 .react-calendar__tile--active {
     background: #5e1b89 !important;
-    color: white;
+    color: white !important;
 }
 
 .react-calendar__tile--now {
     background: #9d71bc !important;
+    color: white !important;
 }
 
 .react-datetime-picker {
-    color: #9d71bc;
+    color: #9d71bc !important;
 }
 
 .react-datetime-picker__wrapper .react-datetime-picker__button svg {
-    stroke: #5e1b89;
-    fill: #5e1b89;
+    stroke: #5e1b89 !important;
+    fill: #5e1b89 !important;
 }
 
 @media only screen and (max-width: 700px) {
@@ -281,6 +297,9 @@ button:hover {
 @media only screen and (max-width: 480px) {
     .page-layout {
         transform: scale(0.8);
+    }
+    .task-btns {
+        flex-direction: column;
     }
 }
 
@@ -298,3 +317,4 @@ button:hover {
         transform: scale(0.9);
     }
 }
+
