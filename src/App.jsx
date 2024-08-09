@@ -3,7 +3,8 @@ import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import DateTimeModal from "./DateTimeModal";
 import DeleteModal from "./DeleteModal";
-import EditTaskModal from "./EditTaskModal"; 
+import EditTaskModal from "./EditTaskModal";
+import DeleteTaskModal from "./DeleteTaskModal";
 
 function App() {
     const [newTask, setNewTask] = useState("");
@@ -15,8 +16,10 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [isDeleteTaskModalOpen, setIsDeleteTaskModalOpen] = useState(false);
     const [selectedTask, setSelectedTask] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
+    const [taskToDelete, setTaskToDelete] = useState(null);
 
     useEffect(() => {
         localStorage.setItem("TASK", JSON.stringify(todos));
@@ -47,10 +50,12 @@ function App() {
         );
     }
 
-    function deleteTodo(id) {
+    function confirmDeleteTodo() {
         setTodos((currentTodos) =>
-            currentTodos.filter((todo) => todo.id !== id)
+            currentTodos.filter((todo) => todo.id !== taskToDelete.id)
         );
+        setIsDeleteTaskModalOpen(false);
+        setTaskToDelete(null);
     }
 
     function deleteAll() {
@@ -103,6 +108,8 @@ function App() {
                 todo.id === updatedTask.id ? updatedTask : todo
             )
         );
+        setIsEditModalOpen(false);
+        setSelectedTask(null);
     }
 
     const areButtonsDisabled = todos.length === 0;
@@ -199,7 +206,10 @@ function App() {
                                     <i className="fa-regular fa-pen-to-square"></i>
                                 </Button>
                                 <Button
-                                    onClick={() => deleteTodo(todo.id)}
+                                    onClick={() => {
+                                        setTaskToDelete(todo);
+                                        setIsDeleteTaskModalOpen(true);
+                                    }}
                                     variant="danger"
                                     className="remove-btn"
                                 >
@@ -226,6 +236,14 @@ function App() {
                     onRequestClose={() => setIsEditModalOpen(false)}
                     onConfirm={handleEditConfirm}
                     task={selectedTask}
+                />
+            )}
+            {taskToDelete && (
+                <DeleteTaskModal
+                    isOpen={isDeleteTaskModalOpen}
+                    onRequestClose={() => setIsDeleteTaskModalOpen(false)}
+                    onConfirm={confirmDeleteTodo}
+                    taskTitle={taskToDelete.title}
                 />
             )}
         </div>
